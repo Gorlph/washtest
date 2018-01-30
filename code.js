@@ -5,28 +5,23 @@ const URLs=[
   "http://api.box24corp.com/rest/index.php/test/Ex/three",
   "http://api.box24corp.com/rest/index.php/test/Ex/four",
   "http://api.box24corp.com/rest/index.php/test/Ex/five"]
-
   const makeRequest = async ()=>{
     let result=''
     for(let i = 0; i<URLs.length;i++){
-      try{
-      let res = await axios(URLs[i])
-      // console.log(res.data)
-      let status = res.data.status
-      // console.log(status)
-      let data = res.data.data
-      let append =(status=="Suscess")?true:false
-      if(append){
-        result = result+data
-        if(i!=URLs.length-1)result = result+"*"
+      try {
+        let res = await axios(URLs[i])
+        // console.log(res.data)
+        let status = res.data.status
+        // console.log(status)
+        let data = res.data.data
+        let append =(status=="Suscess")?true:false
+        if(append){
+          result = result+data
+          if(i!=URLs.length-1)result = result+"*"
+          }
+        }
+      catch(e){}
       }
-    }
-    catch(e){
-
-    }
-
-    }
     console.log(result)
-
   }
 makeRequest()
