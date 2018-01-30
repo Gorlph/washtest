@@ -16,7 +16,7 @@ const URLs=[
         let data = res.data.data
         let append =(status=="Suscess")?true:false
         if(append){
-          if(i!=0)result = result+"*"
+          if(result!='')result = result+"*"
           result= result+data
           }
         }
